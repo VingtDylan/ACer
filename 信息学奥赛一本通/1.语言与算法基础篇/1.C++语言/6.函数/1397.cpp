@@ -17,4 +17,5 @@ int cal(int x,char op,int y){
 	if(op == '-')return x - y;
 	if(op == '*')return x * y;
 	if(op == '/')return x / y;
+	if(op == '%')return x % y; 
 }
