@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(){
-	int f[71];
+	long long f[71];
 	memset(f,0,sizeof(f));
 	f[1] = 1;
 	f[2] = 2;

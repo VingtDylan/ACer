@@ -19,7 +19,7 @@ int main(){
 	}
 	int k = m * 1.5;
 	sort(a,a + n,cmp);
-	int score = a[k].grade;
+	int score = a[k - 1].grade;
 	int count = 0;
 	for(int i = 0; i < n; i++){
 		if(a[i].grade >= score){

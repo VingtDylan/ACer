@@ -1,25 +1,24 @@
 #include<iostream>
-#include<cstdio>
-#include<cstring>
+#include<stdio.h>
+#include<string.h>
 using namespace std;
 
 int main(){
-    int a[101]={0};
-    int n,b;
-    int i;
-    bool flag=false;
-    cin>>n;
-    for(i=0;i<n;i++){
-        cin>>b;
-        a[b+50]++;
+    int a[101] = {0};
+    int n;cin>>n;
+	int k;
+    bool flag = false;
+    for(int i = 0; i < n; i++){
+        cin>>k;
+        a[k + 50]++;
     }
-    for(i=0;i<100;i++){
-        if(a[i]>=n/2){
-            flag=true;
-            cout<<i-50<<endl;
+    for(int i = 0; i < 100; i++){
+        if(a[i] >= (n + 1) / 2){
+            flag = true;
+            cout<<i - 50<<endl;
         }
     }
-    if(flag==0)
+    if(!flag)
         cout<<"no";
     cout<<endl;
     return 0;
