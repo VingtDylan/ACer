@@ -4,10 +4,8 @@ using namespace std;
 const int N = 3000;
 int n;
 int a[N];
-int res;
 
 void print(int step){
-    res++;
     cout<<n<<"=";
     for(int i = 1; i <= step - 1; i++)
         cout<<a[i]<<"+";
@@ -31,8 +29,6 @@ void dfs(int sum,int step){
 int main(){
     cin>>n;
     a[0]=1;
-    res = 0;
     dfs(n,1);
-    cout<<"total="<<res<<endl;
     return 0;
 }
