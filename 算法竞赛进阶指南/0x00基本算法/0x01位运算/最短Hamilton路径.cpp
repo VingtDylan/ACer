@@ -1,0 +1,49 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+const int maxn = 21;
+int a[maxn][maxn];
+
+int main(){
+    int n;cin>>n;
+    for(int i = 0; i < n; i++)
+        for(int j = 0; j < n; j++)
+            cin>>a[i][j];
+    int f[1<<20][20];
+    memset(f,0x3f,sizeof(f));
+    f[1][0] = 0;
+    for(int i = 1; i < 1 << n; i++){
+        for(int j = 0; j < n; j++)if(i >> j & 1)
+                for(int k = 0; k < n; k++)if(i >> k & 1)
+                        f[i][j] = min(f[i][j],f[i^1<<j][k] + a[k][j]);
+    }
+    cout<<f[(1 << n) - 1][n - 1]<<endl;
+    return 0;
+}
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+const int N = 20, M = 1<< 20;
+int n;
+int f[M][N], weight[N][N];
+
+int main(){
+    cin>>n;
+    for(int i = 0; i < n; i++)
+        for(int j = 0; j < n; j++)
+            cin>>weight[i][j];
+    memset(f,0x3f,sizeof(f));
+    f[1][0] = 0;
+    for(int i = 0; i < 1 << n; i++)
+        for(int j = 0; j < n; j++)
+            if(i >> j & 1)
+                for(int k = 0; k < n; k++)
+                    if(i >> k & 1)
+                        f[i][j] = min(f[i][j], f[i ^ 1 << j][k] + weight[k][j]);
+                        //f[i][j] = min(f[i][j], f[i - 1 << j][k] + weight[k][j]);
+    cout<<f[(1 << n) - 1][n - 1]<<endl;
+    return 0;
+}
